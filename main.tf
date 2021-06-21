@@ -1,22 +1,17 @@
-resource "azurerm_key_vault" "test_kv" {
-  name                        = "test-kv"
-  location                    = var.location
-  resource_group_name         = resource-group id    # attach the resource group id"
+resource "azurerm_key_vault" "eval-kv" {
+  name                        = var.KV_NAME
+  location                    = "East US"
+  resource_group_name         = var.RG_NAME
   enabled_for_disk_encryption = true
-  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  tenant_id                   = "70982e01-16e3-4267-9e23-83394bd1a9e8"
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
-
-network_rule_set {
-    default_action  = "Deny"
-    virtual_network = local.allowed_virtual_networks
-  }   
 
   sku_name = "standard"
 
   access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+    tenant_id = "70982e01-16e3-4267-9e23-83394bd1a9e8"
+    object_id = "f009dcdd-414d-4732-8c42-c4ab68934415"
 
     key_permissions = [
       "Get",
@@ -30,4 +25,9 @@ network_rule_set {
       "Get",
     ]
   }
+
+  network_rule_set {
+    default_action  = "Deny"
+    virtual_network = local.allowed_virtual_networks
+  }  
 }
