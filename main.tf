@@ -1,3 +1,10 @@
+backend "azurerm" {
+    resource_group_name   = var.RG_NAME
+    storage_account_name  = "tfstateac"
+    container_name        = "tfstate"
+    key                   = "BXNSxGxwugWitklqE6wOTSe2+PkxGPgNtriZrLgkY6tiwaCzkr/owQS8UUmfoZzSwLK2yJckMXMgXxz0P2qAEw=="
+}
+
 resource "azurerm_key_vault" "eval-kv" {
   name                        = var.KV_NAME
   location                    = "East US"
