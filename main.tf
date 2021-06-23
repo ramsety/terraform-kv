@@ -43,6 +43,6 @@ resource "azurerm_key_vault" "eval-kv" {
   network_acls {
     default_action  = "Deny"
     bypass  = "None"
-    virtual_network_subnet_ids = "10.0.0.0/25"
+    virtual_network_subnet_ids = loca.subnet_ids
     }
 }
