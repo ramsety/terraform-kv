@@ -1,8 +1,15 @@
-backend "azurerm" {
-    resource_group_name   = var.RG_NAME
-    storage_account_name  = "tfstateac"
-    container_name        = "tfstate"
-    key                   = "BXNSxGxwugWitklqE6wOTSe2+PkxGPgNtriZrLgkY6tiwaCzkr/owQS8UUmfoZzSwLK2yJckMXMgXxz0P2qAEw=="
+terraform {
+  backend "azurerm" {}
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 2.55"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {
 }
 
 resource "azurerm_key_vault" "eval-kv" {
