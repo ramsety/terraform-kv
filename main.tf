@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "azurerm" {
-  features {
+  features {}
 }
 
 resource "azurerm_key_vault" "eval-kv" {
