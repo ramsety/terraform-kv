@@ -40,8 +40,7 @@ resource "azurerm_key_vault" "eval-kv" {
     ]
   }
 
-  network_rule_set {
+  network_acls {
     default_action  = "Deny"
-    virtual_network = local.allowed_virtual_networks
-  }  
+    virtual_network_subnet_ids = var.allowed_subnet_ids
 }
