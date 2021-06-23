@@ -11,11 +11,13 @@ jobs:
 - job: Job_1
   displayName: Terraform Deploy
   pool:
-    vmImage: vs2017-win2016
+    vmImage: 'ubuntu-latest'
   steps:
   - checkout: self
   - task: TerraformInstaller@0
     displayName: terraform install
+    inputs:
+      terraformversion: 'latest'
   - task: TerraformTaskV2@2
     displayName: 'Terraform : INIT'
     inputs:
