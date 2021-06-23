@@ -1,15 +1,10 @@
-terraform {
-  backend "azurerm" {}
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">= 2.55"
-    }
-  }
+terrafrom{
+backend "azurerm" {
+    resource_group_name   = var.RG_NAME
+    storage_account_name  = "tfstateac"
+    container_name        = "tfstate"
+    key                   = "BXNSxGxwugWitklqE6wOTSe2+PkxGPgNtriZrLgkY6tiwaCzkr/owQS8UUmfoZzSwLK2yJckMXMgXxz0P2qAEw=="
 }
-
-provider "azurerm" {
-  features {}
 }
 
 resource "azurerm_key_vault" "eval-kv" {
@@ -40,9 +35,8 @@ resource "azurerm_key_vault" "eval-kv" {
     ]
   }
 
-  network_acls {
+  network_rule_set {
     default_action  = "Deny"
-    bypass  = "None"
-    virtual_network_subnet_ids = "${var.subnet_ids["subnet"]}"
-    }
+    virtual_network = local.allowed_virtual_networks
+  }  
 }
