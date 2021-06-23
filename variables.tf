@@ -10,8 +10,10 @@ variable "location" {
     default = "eastus"
 }
 
-variable "allowed_subnet_ids" {
+variable "allowed_subnet" {
     description = "Value of the location where container registry to be created"
     type = map       
-    default = {"10.0.0.0/24,"10.1.0.0/24","10.2.0.0/24"}
+    default = {
+        "allowed_subnet_ids" = "10.0.0.0/25"
+        }
 }
