@@ -12,6 +12,6 @@ variable "location" {
 
 variable "allowed_subnet_ids" {
     description = "Value of the location where container registry to be created"
-    type = list(map)         
+    type = map       
     default = ["10.0.0.0/24","10.1.0.0/24","10.2.0.0/24"]
 }
