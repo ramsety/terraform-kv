@@ -1,7 +1,7 @@
 variable "KV_NAME" {
     description = "Value of the  KeyVault"
     type = string
-    default = "test"
+    default = "evalkvrmsty01"
 }
 
 variable "RG_NAME" {
