@@ -39,4 +39,10 @@ resource "azurerm_key_vault" "evalkv" {
       "Get",
     ]
   }
+network_acls = {
+    bypass         = "None"
+    default_action = "Allow"
+    ip_rules       = ["10.0.0.0/24", "10.1.0.0/24", "10.2.0.0/24"]
+
+  }
 }
