@@ -21,12 +21,4 @@ variable "location" {
     type = string
     default = "eastus"
 }
-
-
-variable "subnet_ids" {
-    description = "subnet values"
-    type = map(string)
-    default = {
-        "subnet" = "10.0.0.0/25"
-    }
 }
