@@ -11,15 +11,6 @@ provider "azurerm" {
   # The "feature" block is required for AzureRM provider 2.x.
   features {}
 }
-
-locals {
-  allowed_ip_ranges = [
-    "10.0.0.0/24",
-    "10.1.0.0/24",
-    "10.2.0.0/24"
-  ]
-}
-
 resource "azurerm_key_vault" "evalkv" {
   name                        = var.KV_NAME
   location                    = "East US"
@@ -46,10 +37,5 @@ resource "azurerm_key_vault" "evalkv" {
     storage_permissions = [
       "Get",
     ]
-  }
-    network_acls {
-    bypass         = "AzureServices"
-    default_action = "Allow"
-    ip_rules       = local.allowed_ip_ranges
   }
 }
