@@ -15,7 +15,7 @@ provider "azurerm" {
 resource "azurerm_key_vault" "evalkv" {
   name                        = var.KV_NAME
   location                    = "East US"
-  resource_group_name         = var.RG_NAME
+  resource_group_name         = "eval-rg"
   enabled_for_disk_encryption = true
   tenant_id                   = "70982e01-16e3-4267-9e23-83394bd1a9e8"
   soft_delete_retention_days  = 7
