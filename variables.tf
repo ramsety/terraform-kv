@@ -25,6 +25,6 @@ variable "location" {
 
 variable "subnet_ids" {
     description = "subnet values"
-    type = string
+    type = map(string)
     default = "10.0.0.0/25"
 }
