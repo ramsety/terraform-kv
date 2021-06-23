@@ -13,3 +13,14 @@ steps:
 - task: TerraformInstaller@0
   inputs:
     terraformVersion: '0.14.1'
+
+
+- task: TerraformTaskV2@2
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'Azure subscription 1 (8d499e57-3675-4d06-ae05-1fe9de2b0f16)'
+    backendAzureRmResourceGroupName: 'eval-rg'
+    backendAzureRmStorageAccountName: 'tfstateac'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'terraform.tfstate'
