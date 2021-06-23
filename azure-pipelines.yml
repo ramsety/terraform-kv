@@ -17,7 +17,7 @@ jobs:
   - task: TerraformInstaller@0
     displayName: terraform install
   - task: TerraformTaskV2@2
-    displayName: "Terraform : init"
+    displayName: 'Terraform : INIT'
     inputs:
       backendServiceArm: 03c4c8c9-66a9-42b7-a06e-9a07e2c186f2
       backendAzureRmResourceGroupName: eval-rg
