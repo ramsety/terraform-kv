@@ -12,7 +12,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_key_vault" "eval-kv" {
+resource "azurerm_key_vault" "evalkv" {
   name                        = var.KV_NAME
   location                    = "East US"
   resource_group_name         = var.RG_NAME
