@@ -19,18 +19,19 @@ jobs:
   - task: TerraformTaskV2@2
     displayName: 'Terraform : INIT'
     inputs:
-      backendServiceArm: 03c4c8c9-66a9-42b7-a06e-9a07e2c186f2
-      backendAzureRmResourceGroupName: eval-rg
-      backendAzureRmStorageAccountName: tfstateac
-      backendAzureRmContainerName: tfstate
-      backendAzureRmKey: BXNSxGxwugWitklqE6wOTSe2+PkxGPgNtriZrLgkY6tiwaCzkr/owQS8UUmfoZzSwLK2yJckMXMgXxz0P2qAEw==
+      provider: 'azurerm'
+      command: 'init'
+      backendServiceArm: '03c4c8c9-66a9-42b7-a06e-9a07e2c186f2'
+      backendAzureRmResourceGroupName: 'eval-rg'
+      backendAzureRmStorageAccountName: 'tfstateac'
+      backendAzureRmContainerName: 'tfstate'
+      backendAzureRmKey: 'terraform.tfstate'
   - task: TerraformTaskV2@2
     displayName: 'Terraform : PLAN'
     inputs:
       command: plan
       environmentServiceNameAzureRM: 03c4c8c9-66a9-42b7-a06e-9a07e2c186f2
       commandOptions: -input=false -var "RG_NAME=$(TF_VAR_RG_NAME)" "RG_NAME=$(TF_VAR_KV_NAME)"
-
   - task: TerraformTaskV2@2
     displayName: 'Terraform : VAL & APPLY'
     inputs:
