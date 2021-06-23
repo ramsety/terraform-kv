@@ -39,9 +39,4 @@ resource "azurerm_key_vault" "evalkv" {
       "Get",
     ]
   }
-network_rule_set {
-    default_action             = "Allow"
-    bypass                     = ["AzureServices"]
-    virtual_network_subnet_ids = ["/subscriptions/8d499e57-3675-4d06-ae05-1fe9de2b0f16/resourceGroups/eval-rg/providers/Microsoft.Network/virtualNetworks/eval-vnet-01/subnets/subnet-01", "/subscriptions/8d499e57-3675-4d06-ae05-1fe9de2b0f16/resourceGroups/eval-rg/providers/Microsoft.Network/virtualNetworks/eval-vnet-01/subnets/subnet-02", "/subscriptions/8d499e57-3675-4d06-ae05-1fe9de2b0f16/resourceGroups/eval-rg/providers/Microsoft.Network/virtualNetworks/eval-vnet-01/subnets/subnet-03"]
-}
 }
